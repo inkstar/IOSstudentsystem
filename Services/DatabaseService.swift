@@ -198,4 +198,42 @@ class DatabaseService {
     func getRecentLessons(limit: Int = 5) -> [Lesson] {
         return Array(getAllLessons().prefix(limit))
     }
+
+    // MARK: - Remote Data Sync
+
+    func saveStudentsFromRemote(_ students: [Student]) {
+        var existingStudents = getAllStudents()
+        for remoteStudent in students {
+            if let index = existingStudents.firstIndex(where: { $0.id == remoteStudent.id }) {
+                existingStudents[index] = remoteStudent
+            } else {
+                existingStudents.append(remoteStudent)
+            }
+        }
+        saveStudents(existingStudents)
+    }
+
+    func saveLessonsFromRemote(_ lessons: [Lesson]) {
+        var existingLessons = getAllLessons()
+        for remoteLesson in lessons {
+            if let index = existingLessons.firstIndex(where: { $0.id == remoteLesson.id }) {
+                existingLessons[index] = remoteLesson
+            } else {
+                existingLessons.append(remoteLesson)
+            }
+        }
+        saveLessons(existingLessons)
+    }
+
+    func saveProgressFromRemote(_ progressList: [ProgressRecord]) {
+        var existingProgress = getAllProgressRecords()
+        for remoteProgress in progressList {
+            if let index = existingProgress.firstIndex(where: { $0.id == remoteProgress.id }) {
+                existingProgress[index] = remoteProgress
+            } else {
+                existingProgress.append(remoteProgress)
+            }
+        }
+        saveProgressRecords(existingProgress)
+    }
 }

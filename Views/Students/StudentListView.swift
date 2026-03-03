@@ -2,7 +2,12 @@ import SwiftUI
 
 struct StudentListView: View {
     @ObservedObject var viewModel: StudentViewModel
+    @StateObject private var lessonVM = LessonViewModel()
+    @StateObject private var progressVM = ProgressViewModel()
     @State private var showingAddStudent = false
+    @State private var showingExportSheet = false
+    @State private var exportContent: String = ""
+    @State private var exportFileName: String = ""
 
     var body: some View {
         NavigationStack {
@@ -51,7 +56,7 @@ struct StudentListView: View {
                 } else {
                     List {
                         ForEach(viewModel.filteredStudents) { student in
-                            NavigationLink(destination: StudentFormView(viewModel: viewModel, student: student)) {
+                            NavigationLink(destination: StudentDetailView(student: student, studentVM: viewModel, lessonVM: lessonVM, progressVM: progressVM)) {
                                 StudentRowView(student: student)
                             }
                         }
@@ -67,10 +72,28 @@ struct StudentListView: View {
             .navigationTitle("学生管理")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showingAddStudent = true
+                    Menu {
+                        Button {
+                            showingAddStudent = true
+                        } label: {
+                            Label("添加学生", systemImage: "plus")
+                        }
+
+                        Divider()
+
+                        Button {
+                            exportData(format: "csv")
+                        } label: {
+                            Label("导出 CSV", systemImage: "doc.text")
+                        }
+
+                        Button {
+                            exportData(format: "json")
+                        } label: {
+                            Label("导出 JSON", systemImage: "doc.badge.arrow.up")
+                        }
                     } label: {
-                        Image(systemName: "plus")
+                        Image(systemName: "ellipsis.circle")
                     }
                 }
             }
@@ -79,10 +102,24 @@ struct StudentListView: View {
                     StudentFormView(viewModel: viewModel, student: nil)
                 }
             }
+            .sheet(isPresented: $showingExportSheet) {
+                ShareSheet(items: [exportContent])
+            }
             .onAppear {
                 viewModel.loadStudents()
             }
         }
+    }
+
+    private func exportData(format: String) {
+        if format == "csv" {
+            exportContent = ExportService.shared.exportStudentsToCSV()
+            exportFileName = "students.csv"
+        } else {
+            exportContent = ExportService.shared.exportStudentsToJSON() ?? "{}"
+            exportFileName = "students.json"
+        }
+        showingExportSheet = true
     }
 }
 

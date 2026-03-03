@@ -27,6 +27,11 @@ struct MainTabView: View {
                 .tabItem {
                     Label("进度", systemImage: "chart.line.uptrend.xyaxis")
                 }
+
+            SettingsView()
+                .tabItem {
+                    Label("设置", systemImage: "gearshape.fill")
+                }
         }
         .tint(.blue)
         .onAppear {

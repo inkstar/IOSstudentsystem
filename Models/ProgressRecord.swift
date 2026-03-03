@@ -28,6 +28,19 @@ struct ProgressRecord: Identifiable, Codable, Equatable {
     var notes: String
     var createdAt: Date
 
+    enum CodingKeys: String, CodingKey {
+        case id
+        case studentId = "student_id"
+        case studentName = "student_name"
+        case recordDate = "record_date"
+        case subject
+        case topic
+        case masteryLevel = "mastery_level"
+        case score
+        case notes
+        case createdAt = "created_at"
+    }
+
     init(id: Int64? = nil, studentId: Int64 = 0, studentName: String? = nil, recordDate: Date = Date(), subject: String = "", topic: String = "", masteryLevel: MasteryLevel = .average, score: Double = 0, notes: String = "", createdAt: Date = Date()) {
         self.id = id
         self.studentId = studentId

@@ -11,6 +11,18 @@ struct Student: Identifiable, Codable, Equatable {
     var notes: String
     var createdAt: Date
 
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case grade
+        case phone
+        case parentPhone = "parent_phone"
+        case email
+        case address
+        case notes
+        case createdAt = "created_at"
+    }
+
     init(id: Int64? = nil, name: String = "", grade: String = "", phone: String = "", parentPhone: String = "", email: String = "", address: String = "", notes: String = "", createdAt: Date = Date()) {
         self.id = id
         self.name = name

@@ -28,6 +28,21 @@ struct Lesson: Identifiable, Codable, Equatable {
     var notes: String
     var createdAt: Date
 
+    enum CodingKeys: String, CodingKey {
+        case id
+        case studentId = "student_id"
+        case studentName = "student_name"
+        case lessonDate = "lesson_date"
+        case lessonTime = "lesson_time"
+        case subject
+        case content
+        case homework
+        case duration
+        case status
+        case notes
+        case createdAt = "created_at"
+    }
+
     init(id: Int64? = nil, studentId: Int64 = 0, studentName: String? = nil, lessonDate: Date = Date(), lessonTime: String = "", subject: String = "", content: String = "", homework: String = "", duration: Int = 60, status: LessonStatus = .completed, notes: String = "", createdAt: Date = Date()) {
         self.id = id
         self.studentId = studentId
