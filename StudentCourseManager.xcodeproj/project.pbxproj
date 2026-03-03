@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09719401BB4D349D78767BC115850A2D /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408733709E6C871E3630E1F65B9A52C6 /* LessonViewModel.swift */; };
+		3D1F36928445F83317AD8F543D3CAB9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29923D0C0E329FCF564BB0BEB040CFA1 /* ContentView.swift */; };
+		4A9BA1A17338BD026230124890450950 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07652BF7FA3AEAA74A76EC0A2EEFDD43 /* Student.swift */; };
+		5E94BF5379902940D9547BB7540F7C05 /* StudentCourseManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B6189F4DE1E4E4DEE1A1231C13A49A /* StudentCourseManagerApp.swift */; };
+		64F56654F7AC7794588E8BC4DFF4D921 /* LessonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3547B343BB167CF70347BD1967AE326C /* LessonFormView.swift */; };
+		68254012DFC51490236166DE4C040DB8 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6465C7E2DB930F206064D1BB07EF1B0 /* Lesson.swift */; };
+		880BB88E6EF14F34B09D7A78082CB15E /* ProgressFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C0ACB3FDEC6BE8249895030337ECF /* ProgressFormView.swift */; };
+		88D84B2C0D69C243FC6C777F10E27719 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD4F0037A9E307AC6B58266C97477CC /* DatabaseService.swift */; };
+		8C83DDDB2A044B1E61280E4F0849365E /* ProgressListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153C874F590D20CD26E07C3298CC461D /* ProgressListView.swift */; };
+		90547ECDA3CAFCE7729E5EE77B614D49 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573C03085B45E1B74E893E54F36431C /* MainTabView.swift */; };
+		936814474FD91DF1B2BF29998F47B28A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C6405FAC2D8715AF1B145D6F822DF /* DashboardViewModel.swift */; };
+		AE25A9E97F17DD0E593E331C495EF2D4 /* ProgressRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D34C3E946FAE4EC23824F89FB14F1BE /* ProgressRecord.swift */; };
+		B6F979A69FA699B5A0377B734470A281 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51707B5D1603BC20F8A14B1C7AFD1BE1 /* DashboardView.swift */; };
+		BAE0A9EE3CB30206A5CBB963AC26436B /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80B0173F6AF8BB70DCD4DEB473DC5A8 /* StudentViewModel.swift */; };
+		BD71FEC287B119CB51CE8C18C8CD6DA0 /* ProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AD02D9DC340F87AE6E6A130FDBA350 /* ProgressViewModel.swift */; };
+		CD159CC34336C6C955966DEDC39F114D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E542B09F4A95732EF1F0ABF29678EAD /* Assets.xcassets */; };
+		CEC842D0EFD6956D6A558AEC279BB70E /* StudentFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB3D75B4E7D47C47BA83BC0DBCDE843 /* StudentFormView.swift */; };
+		DC87EB8857465C88B9B163AF7D9BEF2D /* LessonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD1AE19D235E15C093BCCB2A819E99 /* LessonListView.swift */; };
+		EDFD61F5DEAD549517E8AE54F5801E85 /* StudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D21AF6DCB797D7FC9B05B887F36240C /* StudentListView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0573C03085B45E1B74E893E54F36431C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		07652BF7FA3AEAA74A76EC0A2EEFDD43 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		153C874F590D20CD26E07C3298CC461D /* ProgressListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressListView.swift; sourceTree = "<group>"; };
+		1E542B09F4A95732EF1F0ABF29678EAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2511744B2A18E8D39CE288DA5133A5BC /* StudentCourseManager.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StudentCourseManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29923D0C0E329FCF564BB0BEB040CFA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2AD4F0037A9E307AC6B58266C97477CC /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		3547B343BB167CF70347BD1967AE326C /* LessonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonFormView.swift; sourceTree = "<group>"; };
+		408733709E6C871E3630E1F65B9A52C6 /* LessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewModel.swift; sourceTree = "<group>"; };
+		4D21AF6DCB797D7FC9B05B887F36240C /* StudentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListView.swift; sourceTree = "<group>"; };
+		4D34C3E946FAE4EC23824F89FB14F1BE /* ProgressRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRecord.swift; sourceTree = "<group>"; };
+		51707B5D1603BC20F8A14B1C7AFD1BE1 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		63B6189F4DE1E4E4DEE1A1231C13A49A /* StudentCourseManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCourseManagerApp.swift; sourceTree = "<group>"; };
+		6B1C6405FAC2D8715AF1B145D6F822DF /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		740C0ACB3FDEC6BE8249895030337ECF /* ProgressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressFormView.swift; sourceTree = "<group>"; };
+		8AB3D75B4E7D47C47BA83BC0DBCDE843 /* StudentFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentFormView.swift; sourceTree = "<group>"; };
+		A80B0173F6AF8BB70DCD4DEB473DC5A8 /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
+		C7AD02D9DC340F87AE6E6A130FDBA350 /* ProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewModel.swift; sourceTree = "<group>"; };
+		D6465C7E2DB930F206064D1BB07EF1B0 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		F7FD1AE19D235E15C093BCCB2A819E99 /* LessonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1CC56C4D08E54780DC2348C6020D1054 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1E542B09F4A95732EF1F0ABF29678EAD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1DD9173B934F89F109D98539A0D9AF33 = {
+			isa = PBXGroup;
+			children = (
+				279AF41712331B32613684B4956B3EF0 /* App */,
+				CE97EEE5A56E4195E826F70CE30BA4E3 /* Models */,
+				1CC56C4D08E54780DC2348C6020D1054 /* Resources */,
+				1F97A1C55BD2E9B309F8503EAB0255D3 /* Services */,
+				8EF67CC665A7827227FB1B376F296568 /* ViewModels */,
+				7A66218521933A00DF25600585120DD3 /* Views */,
+				9DB5A1D12C7B882F4EA81EEEE99E9152 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F97A1C55BD2E9B309F8503EAB0255D3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2AD4F0037A9E307AC6B58266C97477CC /* DatabaseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		279AF41712331B32613684B4956B3EF0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				29923D0C0E329FCF564BB0BEB040CFA1 /* ContentView.swift */,
+				63B6189F4DE1E4E4DEE1A1231C13A49A /* StudentCourseManagerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3E62B53D0DAA9A9993B449BC9341F142 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				51707B5D1603BC20F8A14B1C7AFD1BE1 /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		7A66218521933A00DF25600585120DD3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0573C03085B45E1B74E893E54F36431C /* MainTabView.swift */,
+				BD0E05C55736B85AFD1EEAF17C90F59C /* Components */,
+				3E62B53D0DAA9A9993B449BC9341F142 /* Dashboard */,
+				E67DC9991F13DB20339FDBF60627F646 /* Lessons */,
+				EC77867AED67F92DE1A2AD45677327F8 /* Progress */,
+				8CB11F7B619B32202F3763F54803E18E /* Students */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8CB11F7B619B32202F3763F54803E18E /* Students */ = {
+			isa = PBXGroup;
+			children = (
+				8AB3D75B4E7D47C47BA83BC0DBCDE843 /* StudentFormView.swift */,
+				4D21AF6DCB797D7FC9B05B887F36240C /* StudentListView.swift */,
+			);
+			path = Students;
+			sourceTree = "<group>";
+		};
+		8EF67CC665A7827227FB1B376F296568 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6B1C6405FAC2D8715AF1B145D6F822DF /* DashboardViewModel.swift */,
+				408733709E6C871E3630E1F65B9A52C6 /* LessonViewModel.swift */,
+				C7AD02D9DC340F87AE6E6A130FDBA350 /* ProgressViewModel.swift */,
+				A80B0173F6AF8BB70DCD4DEB473DC5A8 /* StudentViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9DB5A1D12C7B882F4EA81EEEE99E9152 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2511744B2A18E8D39CE288DA5133A5BC /* StudentCourseManager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD0E05C55736B85AFD1EEAF17C90F59C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CE97EEE5A56E4195E826F70CE30BA4E3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D6465C7E2DB930F206064D1BB07EF1B0 /* Lesson.swift */,
+				4D34C3E946FAE4EC23824F89FB14F1BE /* ProgressRecord.swift */,
+				07652BF7FA3AEAA74A76EC0A2EEFDD43 /* Student.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E67DC9991F13DB20339FDBF60627F646 /* Lessons */ = {
+			isa = PBXGroup;
+			children = (
+				3547B343BB167CF70347BD1967AE326C /* LessonFormView.swift */,
+				F7FD1AE19D235E15C093BCCB2A819E99 /* LessonListView.swift */,
+			);
+			path = Lessons;
+			sourceTree = "<group>";
+		};
+		EC77867AED67F92DE1A2AD45677327F8 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				740C0ACB3FDEC6BE8249895030337ECF /* ProgressFormView.swift */,
+				153C874F590D20CD26E07C3298CC461D /* ProgressListView.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		699CA9262E6437BF5A4300641316125A /* StudentCourseManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0821C7FB1110C29DF95D765563FEBF3B /* Build configuration list for PBXNativeTarget "StudentCourseManager" */;
+			buildPhases = (
+				F0EC96F3E403E78CB0151DA168F6FC0B /* Sources */,
+				23979017C782E9DD7C3909A85204DAA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StudentCourseManager;
+			productName = StudentCourseManager;
+			productReference = 2511744B2A18E8D39CE288DA5133A5BC /* StudentCourseManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		170A12FC7C24FE3206FD10406B3D72EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					699CA9262E6437BF5A4300641316125A = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6F77AC7DBB3752D266C383452120830E /* Build configuration list for PBXProject "StudentCourseManager" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1DD9173B934F89F109D98539A0D9AF33;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				699CA9262E6437BF5A4300641316125A /* StudentCourseManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23979017C782E9DD7C3909A85204DAA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD159CC34336C6C955966DEDC39F114D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F0EC96F3E403E78CB0151DA168F6FC0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D1F36928445F83317AD8F543D3CAB9B /* ContentView.swift in Sources */,
+				B6F979A69FA699B5A0377B734470A281 /* DashboardView.swift in Sources */,
+				936814474FD91DF1B2BF29998F47B28A /* DashboardViewModel.swift in Sources */,
+				88D84B2C0D69C243FC6C777F10E27719 /* DatabaseService.swift in Sources */,
+				68254012DFC51490236166DE4C040DB8 /* Lesson.swift in Sources */,
+				64F56654F7AC7794588E8BC4DFF4D921 /* LessonFormView.swift in Sources */,
+				DC87EB8857465C88B9B163AF7D9BEF2D /* LessonListView.swift in Sources */,
+				09719401BB4D349D78767BC115850A2D /* LessonViewModel.swift in Sources */,
+				90547ECDA3CAFCE7729E5EE77B614D49 /* MainTabView.swift in Sources */,
+				880BB88E6EF14F34B09D7A78082CB15E /* ProgressFormView.swift in Sources */,
+				8C83DDDB2A044B1E61280E4F0849365E /* ProgressListView.swift in Sources */,
+				AE25A9E97F17DD0E593E331C495EF2D4 /* ProgressRecord.swift in Sources */,
+				BD71FEC287B119CB51CE8C18C8CD6DA0 /* ProgressViewModel.swift in Sources */,
+				4A9BA1A17338BD026230124890450950 /* Student.swift in Sources */,
+				5E94BF5379902940D9547BB7540F7C05 /* StudentCourseManagerApp.swift in Sources */,
+				CEC842D0EFD6956D6A558AEC279BB70E /* StudentFormView.swift in Sources */,
+				EDFD61F5DEAD549517E8AE54F5801E85 /* StudentListView.swift in Sources */,
+				BAE0A9EE3CB30206A5CBB963AC26436B /* StudentViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		225935E40660BE9CDA474D640BF0F80F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		60A29BA46FAF894B98DF1739A360EDBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				INFOPLIST_KEY_CFBundleDisplayName = "学生课程管理";
+				PRODUCT_BUNDLE_IDENTIFIER = com.studentapp.coursemanager;
+			};
+			name = Release;
+		};
+		67BD4B37D754D6B62B6035084ADC0A8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		8552DA9904AEAD8BB1793A8CC722B750 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				INFOPLIST_KEY_CFBundleDisplayName = "学生课程管理";
+				PRODUCT_BUNDLE_IDENTIFIER = com.studentapp.coursemanager;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0821C7FB1110C29DF95D765563FEBF3B /* Build configuration list for PBXNativeTarget "StudentCourseManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8552DA9904AEAD8BB1793A8CC722B750 /* Debug */,
+				60A29BA46FAF894B98DF1739A360EDBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "";
+		};
+		6F77AC7DBB3752D266C383452120830E /* Build configuration list for PBXProject "StudentCourseManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				225935E40660BE9CDA474D640BF0F80F /* Debug */,
+				67BD4B37D754D6B62B6035084ADC0A8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 170A12FC7C24FE3206FD10406B3D72EB /* Project object */;
+}
