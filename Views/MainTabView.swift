@@ -13,6 +13,11 @@ struct MainTabView: View {
                     Label("仪表盘", systemImage: "chart.bar.fill")
                 }
 
+            StatisticsView()
+                .tabItem {
+                    Label("统计", systemImage: "chart.pie.fill")
+                }
+
             StudentListView(viewModel: studentVM)
                 .tabItem {
                     Label("学生", systemImage: "person.2.fill")
