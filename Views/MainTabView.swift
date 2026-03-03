@@ -38,6 +38,13 @@ struct MainTabView: View {
                     Label("进度", systemImage: "chart.line.uptrend.xyaxis")
                 }
 
+            NavigationStack {
+                WeakPointsByGradeView(studentVM: studentVM)
+            }
+            .tabItem {
+                Label("薄弱点", systemImage: "exclamationmark.triangle.fill")
+            }
+
             SettingsView()
                 .tabItem {
                     Label("设置", systemImage: "gearshape.fill")

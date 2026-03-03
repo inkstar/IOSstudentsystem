@@ -9,6 +9,8 @@ class DatabaseService {
     private let studentIdKey = "studentIdCounter"
     private let lessonIdKey = "lessonIdCounter"
     private let progressIdKey = "progressIdCounter"
+    private let knowledgePointKey = "knowledgePoints"
+    private let knowledgePointIdKey = "knowledgePointIdCounter"
 
     private init() {}
 
@@ -53,6 +55,9 @@ class DatabaseService {
         var progress = getAllProgressRecords()
         progress.removeAll { $0.studentId == id }
         saveProgressRecords(progress)
+
+        // Also delete related knowledge points
+        deleteKnowledgePoints(forStudentId: id)
     }
 
     private func saveStudents(_ students: [Student]) {
@@ -164,6 +169,86 @@ class DatabaseService {
     private func getNextProgressId() -> Int64 {
         let id = UserDefaults.standard.integer(forKey: progressIdKey)
         UserDefaults.standard.set(id + 1, forKey: progressIdKey)
+        return Int64(id + 1)
+    }
+
+    // MARK: - Knowledge Points
+
+    func getAllKnowledgePoints() -> [KnowledgePoint] {
+        guard let data = UserDefaults.standard.data(forKey: knowledgePointKey),
+              let points = try? JSONDecoder().decode([KnowledgePoint].self, from: data) else {
+            return []
+        }
+        return points.sorted { $0.lastRecordDate > $1.lastRecordDate }
+    }
+
+    func getKnowledgePoints(forStudentId studentId: Int64) -> [KnowledgePoint] {
+        return getAllKnowledgePoints().filter { $0.studentId == studentId }
+    }
+
+    func getWeakPoints(forStudentId studentId: Int64) -> [KnowledgePoint] {
+        return getKnowledgePoints(forStudentId: studentId).filter { $0.type == .weak }
+    }
+
+    func getWeakPoints(forGrade grade: String) -> [KnowledgePoint] {
+        guard !grade.isEmpty else { return getAllKnowledgePoints().filter { $0.type == .weak } }
+        return getAllKnowledgePoints().filter { $0.type == .weak && $0.grade == grade }
+    }
+
+    func getMasteredPoints(forStudentId studentId: Int64) -> [KnowledgePoint] {
+        return getKnowledgePoints(forStudentId: studentId).filter { $0.type == .mastered }
+    }
+
+    func saveKnowledgePoint(_ knowledgePoint: KnowledgePoint) -> KnowledgePoint {
+        var points = getAllKnowledgePoints()
+        var newPoint = knowledgePoint
+
+        // Check if this student+subject+topic already exists
+        if let index = points.firstIndex(where: {
+            $0.studentId == knowledgePoint.studentId &&
+            $0.subject == knowledgePoint.subject &&
+            $0.topic == knowledgePoint.topic &&
+            $0.type == knowledgePoint.type
+        }) {
+            // Update existing - accumulate score and count
+            points[index].totalScore += knowledgePoint.totalScore
+            points[index].recordCount += 1
+            points[index].lastRecordDate = Date()
+            newPoint = points[index]
+        } else {
+            // Create new
+            let newId = getNextKnowledgePointId()
+            newPoint.id = newId
+            newPoint.createdAt = Date()
+            newPoint.lastRecordDate = Date()
+            points.append(newPoint)
+        }
+
+        saveKnowledgePoints(points)
+        return newPoint
+    }
+
+    func deleteKnowledgePoint(id: Int64) {
+        var points = getAllKnowledgePoints()
+        points.removeAll { $0.id == id }
+        saveKnowledgePoints(points)
+    }
+
+    func deleteKnowledgePoints(forStudentId studentId: Int64) {
+        var points = getAllKnowledgePoints()
+        points.removeAll { $0.studentId == studentId }
+        saveKnowledgePoints(points)
+    }
+
+    private func saveKnowledgePoints(_ points: [KnowledgePoint]) {
+        if let data = try? JSONEncoder().encode(points) {
+            UserDefaults.standard.set(data, forKey: knowledgePointKey)
+        }
+    }
+
+    private func getNextKnowledgePointId() -> Int64 {
+        let id = UserDefaults.standard.integer(forKey: knowledgePointIdKey)
+        UserDefaults.standard.set(id + 1, forKey: knowledgePointIdKey)
         return Int64(id + 1)
     }
 

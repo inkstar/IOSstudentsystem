@@ -14,6 +14,7 @@ struct ProgressFormView: View {
     @State private var masteryLevel: MasteryLevel = .average
     @State private var score: Double = 0
     @State private var notes: String = ""
+    @State private var knowledgePointType: KnowledgePointType = .weak
 
     private let subjects = ["语文", "数学", "英语", "物理", "化学", "生物", "历史", "地理", "政治", "其他"]
 
@@ -50,6 +51,12 @@ struct ProgressFormView: View {
                 Picker("掌握程度", selection: $masteryLevel) {
                     ForEach(MasteryLevel.allCases, id: \.self) { level in
                         Text(level.displayName).tag(level)
+                    }
+                }
+
+                Picker("知识点类型", selection: $knowledgePointType) {
+                    ForEach(KnowledgePointType.allCases, id: \.self) { type in
+                        Label(type.displayName, systemImage: type.icon).tag(type)
                     }
                 }
 
@@ -106,6 +113,12 @@ struct ProgressFormView: View {
         newRecord.notes = notes
 
         viewModel.saveProgressRecord(newRecord)
+
+        // Save knowledge point
+        if let student = studentVM.students.first(where: { $0.id == selectedStudentId }) {
+            KnowledgePointService.shared.saveFromProgressRecord(newRecord, student: student, type: knowledgePointType)
+        }
+
         dismiss()
     }
 }

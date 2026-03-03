@@ -99,3 +99,53 @@ struct SyncStatusBadge: View {
         }
     }
 }
+
+struct KnowledgePointRowView: View {
+    let point: KnowledgePoint
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Image(systemName: point.type.icon)
+                    .foregroundColor(point.type == .mastered ? .green : .orange)
+
+                Text(point.topic)
+                    .font(.headline)
+
+                Spacer()
+
+                Text(point.subject)
+                    .font(.caption)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(Color.blue.opacity(0.1))
+                    .foregroundColor(.blue)
+                    .cornerRadius(4)
+            }
+
+            HStack(spacing: 16) {
+                Label("\(point.recordCount)次记录", systemImage: "number")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+
+                Label("累计分数: \(Int(point.totalScore))", systemImage: "sum")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+
+                if let lastDate = Optional(point.lastRecordDate) {
+                    Text("最近: \(lastDate, formatter: dateFormatter)")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+        }
+        .padding(.vertical, 4)
+    }
+
+    private var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        return formatter
+    }
+}

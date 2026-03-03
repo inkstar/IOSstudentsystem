@@ -5,6 +5,7 @@ struct StudentDetailView: View {
     @ObservedObject var studentVM: StudentViewModel
     @ObservedObject var lessonVM: LessonViewModel
     @ObservedObject var progressVM: ProgressViewModel
+    @StateObject private var knowledgePointVM = KnowledgePointViewModel()
     @State private var selectedTab = 0
 
     var studentLessons: [Lesson] {
@@ -58,7 +59,8 @@ struct StudentDetailView: View {
             Picker("", selection: $selectedTab) {
                 Text("课程 (\(studentLessons.count))").tag(0)
                 Text("进度 (\(studentProgress.count))").tag(1)
-                Text("详情").tag(2)
+                Text("薄弱 (\(knowledgePointVM.weakPoints.count))").tag(2)
+                Text("详情").tag(3)
             }
             .pickerStyle(.segmented)
             .padding()
@@ -87,6 +89,29 @@ struct StudentDetailView: View {
                 }
                 .tag(1)
 
+                // Weak Points Tab
+                if knowledgePointVM.weakPoints.isEmpty {
+                    emptyState(message: "暂无薄弱知识点记录")
+                } else {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Button(knowledgePointVM.sortByCount ? "按次数排序" : "按分数排序") {
+                                knowledgePointVM.toggleSortOrder()
+                            }
+                            .buttonStyle(.bordered)
+                        }
+                        .padding(.horizontal)
+                        .padding(.top, 8)
+
+                        List(knowledgePointVM.weakPoints) { point in
+                            KnowledgePointRowView(point: point)
+                        }
+                        .listStyle(.plain)
+                    }
+                }
+                .tag(2)
+
                 // Details Tab
                 List {
                     if !student.email.isEmpty {
@@ -114,7 +139,7 @@ struct StudentDetailView: View {
                         }
                     }
                 }
-                .tag(2)
+                .tag(3)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
@@ -123,6 +148,9 @@ struct StudentDetailView: View {
         .onAppear {
             lessonVM.loadLessons()
             progressVM.loadProgressRecords()
+            if let studentId = student.id {
+                knowledgePointVM.loadWeakPoints(forStudentId: studentId)
+            }
         }
     }
 

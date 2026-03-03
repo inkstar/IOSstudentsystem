@@ -19,16 +19,46 @@
 - Phase 4：日历视图：Done
 - Phase 5：数据统计图表：Done
 - Phase 6：课程详情页：Done
+- Phase 7：知识点标签功能：Done
 
 ---
 
 ## 执行日志
+- 2026-03-04: 完成 Phase 7 - 知识点标签功能开发
 - 2026-03-04: 完成 Phase 6 - 课程详情页开发
 - 2026-03-04: 完成 Phase 5 - 数据统计图表开发
 - 2026-03-04: 完成 Phase 4 - 日历视图开发
 - 2026-03-04: 完成 Phase 3 - API 对接与数据同步
 - 2026-03-04: 完成 Phase 2 - 核心 CRUD 功能开发
 - 2026-03-04: 完成 Phase 1 - 初始化项目基础架构
+
+---
+
+## [UTC+2026-03-04 08:00] Phase 7 - 知识点标签功能（Done）
+
+**目标**: 添加知识点标签功能，用于跟踪学生学习情况
+
+**改动文件**:
+- `Models/KnowledgePoint.swift` - 新增知识点模型
+- `Services/KnowledgePointService.swift` - 新增知识点服务
+- `Services/DatabaseService.swift` - 添加知识点存储方法
+- `ViewModels/KnowledgePointViewModel.swift` - 新增知识点视图模型
+- `Views/Progress/ProgressFormView.swift` - 添加知识点类型选择
+- `Views/Students/StudentDetailView.swift` - 添加薄弱知识点 Tab
+- `Views/Students/WeakPointsByGradeView.swift` - 新增年级薄弱知识点视图
+- `Views/MainTabView.swift` - 添加年级薄弱知识点入口
+- `Views/Components/CommonViews.swift` - 添加知识点行组件
+
+**验收标准**:
+- [x] 可选择知识点类型（已掌握/薄弱）
+- [x] 薄弱知识点支持多次记录，分数累加
+- [x] 学生详情页显示薄弱知识点列表
+- [x] 支持按次数或累计分数排序
+- [x] 年级薄弱知识点视图正常显示
+
+**风险与回滚**:
+- 风险：进度记录与知识点标签的数据一致性
+- 回滚：使用单一数据源，移除知识点聚合逻辑
 
 ---
 
