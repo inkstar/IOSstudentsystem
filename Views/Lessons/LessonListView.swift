@@ -4,6 +4,7 @@ struct LessonListView: View {
     @ObservedObject var viewModel: LessonViewModel
     @ObservedObject var studentVM: StudentViewModel
     @State private var showingAddLesson = false
+    @State private var selectedLesson: Lesson?
 
     var body: some View {
         NavigationStack {
@@ -41,7 +42,7 @@ struct LessonListView: View {
                 } else {
                     List {
                         ForEach(viewModel.filteredLessons) { lesson in
-                            NavigationLink(destination: LessonFormView(viewModel: viewModel, studentVM: studentVM, lesson: lesson)) {
+                            NavigationLink(destination: LessonDetailView(lesson: lesson, studentVM: studentVM)) {
                                 LessonRowView(lesson: lesson)
                             }
                         }
