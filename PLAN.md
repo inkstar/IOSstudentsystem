@@ -1,14 +1,34 @@
 # 开发计划 (PLAN)
 
 ## 更新规则
-- 新增计划必须放在最前面
-- 每条新增计划标题使用 `[UTC+8 YYYY-MM-DD HH:mm]`
-- 废弃计划不删除，使用 ~~删除线~~ 保留历史
-- 每条计划包含：目标、改动文件、验收标准、风险与回滚
+1. 每次完成一组功能，新增一个 Phase，插入到 PLAN.md 最顶部
+2. 标题必须为：## [UTC+8 YYYY-MM-DD HH:mm] Phase N - <标题>（Done）
+3. 每个 Phase 必须包含：目标、改动文件、验收标准、风险与回滚 四项
+4. 不得删除历史 Phase；废弃项用删除线
+5. 更新后必须同步修改：
+   - 阶段状态总览：追加 Phase N ...：Done
+   - 执行日志：追加当天完成记录一条
+6. 时间统一使用 UTC+8，精确到分钟
 
 ---
 
-## [UTC+2026-03-04 11:00] 添加日历视图
+## 阶段状态总览
+- Phase 1：初始化项目基础架构：Done
+- Phase 2：核心 CRUD 功能开发：Done
+- Phase 3：API 对接与数据同步：Done
+- Phase 4：日历视图：Done
+
+---
+
+## 执行日志
+- 2026-03-04: 完成 Phase 4 - 日历视图开发
+- 2026-03-04: 完成 Phase 3 - API 对接与数据同步
+- 2026-03-04: 完成 Phase 2 - 核心 CRUD 功能开发
+- 2026-03-04: 完成 Phase 1 - 初始化项目基础架构
+
+---
+
+## [UTC+2026-03-04 07:17] Phase 4 - 日历视图（Done）
 
 **目标**: 按日历方式查看课程安排
 
@@ -29,15 +49,14 @@
 
 ---
 
-## [UTC+2026-03-04 06:30] 初始化 iOS 项目结构
+## [UTC+2026-03-04 06:30] Phase 1 - 初始化项目基础架构（Done）
 
 **目标**: 创建 iOS 项目基础结构，配置 XcodeGen
 
 **改动文件**:
 - `project.yml` - XcodeGen 项目配置文件
-- `App/` - 应用入口文件
-  - `StudentCourseManagerApp.swift`
-- `ContentView.swift` - 根视图
+- `App/StudentCourseManagerApp.swift` - 应用入口
+- `App/ContentView.swift` - 根视图
 
 **验收标准**:
 - [x] XcodeGen 可生成 .xcodeproj
@@ -50,137 +69,34 @@
 
 ---
 
-## [UTC+2026-03-04 06:35] 创建数据模型和本地存储层
+## [UTC+2026-03-04 06:35] Phase 2 - 核心 CRUD 功能开发（Done）
 
-**目标**: 定义数据模型并实现本地数据存储
-
-**改动文件**:
-- `Models/` - 数据模型
-  - `Student.swift`
-  - `Lesson.swift`
-  - `ProgressRecord.swift`
-- `Services/DatabaseService.swift` - 数据库服务
-
-**验收标准**:
-- [x] 数据模型定义完整
-- [x] 数据库创建成功
-- [x] 基本的 CRUD 操作可用
-
-**风险与回滚**:
-- 风险：SQLite.swift 语法可能有误
-- 回滚：检查文档并修正
-
----
-
-## [UTC+2026-03-04 06:45] 实现仪表盘功能
-
-**目标**: 创建仪表盘页面，展示统计数据
+**目标**: 实现学生管理、课程记录、学习进度功能
 
 **改动文件**:
-- `Views/Dashboard/` - 仪表盘视图
-  - `DashboardView.swift`
-  - `StatCardView.swift`
+- `Models/Student.swift`, `Lesson.swift`, `ProgressRecord.swift` - 数据模型
+- `Services/DatabaseService.swift` - 本地存储
+- `ViewModels/StudentViewModel.swift`, `LessonViewModel.swift`, `ProgressViewModel.swift` - 视图模型
+- `Views/Dashboard/DashboardView.swift` - 仪表盘
+- `Views/Students/StudentListView.swift`, `StudentFormView.swift` - 学生管理
+- `Views/Lessons/LessonListView.swift`, `LessonFormView.swift` - 课程记录
+- `Views/Progress/ProgressListView.swift`, `ProgressFormView.swift` - 学习进度
+- `Views/MainTabView.swift` - TabBar 导航
 
 **验收标准**:
-- [x] 显示学生总数、课程数
-- [x] 显示本周出勤率
-- [x] 展示近期课程列表
-
-**风险与回滚**:
-- 风险：数据统计逻辑可能不准确
-- 回滚：重新审查统计逻辑
-
----
-
-## [UTC+2026-03-04 07:00] 实现学生管理功能
-
-**目标**: 创建学生列表、添加、编辑、删除功能
-
-**改动文件**:
-- `Views/Students/` - 学生视图
-  - `StudentListView.swift`
-  - `StudentRowView.swift`
-  - `StudentFormView.swift`
-- `ViewModels/StudentViewModel.swift`
-
-**验收标准**:
-- [x] 学生列表展示正常
-- [x] 添加学生功能正常
-- [x] 编辑学生功能正常
-- [x] 删除学生功能正常
+- [x] 仪表盘显示统计数据
+- [x] 学生 CRUD 功能正常
+- [x] 课程 CRUD 功能正常
+- [x] 进度 CRUD 功能正常
 - [x] 搜索和筛选功能正常
 
 **风险与回滚**:
-- 风险：表单验证逻辑
-- 回滚：检查输入验证
+- 风险：表单验证逻辑复杂
+- 回滚：简化验证规则
 
 ---
 
-## [UTC+2026-03-04 07:20] 实现课程记录功能
-
-**目标**: 创建课程列表、添加课程功能
-
-**改动文件**:
-- `Views/Lessons/` - 课程视图
-  - `LessonListView.swift`
-  - `LessonRowView.swift`
-  - `LessonFormView.swift`
-- `ViewModels/LessonViewModel.swift`
-
-**验收标准**:
-- [x] 课程列表展示正常
-- [x] 添加课程功能正常
-- [x] 课程状态管理正常
-- [x] 按学生筛选正常
-
-**风险与回滚**:
-- 风险：日期选择器集成
-- 回滚：使用原生 DatePicker
-
----
-
-## [UTC+2026-03-04 07:40] 实现学习进度功能
-
-**目标**: 创建进度记录列表、添加进度功能
-
-**改动文件**:
-- `Views/Progress/` - 进度视图
-  - `ProgressListView.swift`
-  - `ProgressRowView.swift`
-  - `ProgressFormView.swift`
-- `ViewModels/ProgressViewModel.swift`
-
-**验收标准**:
-- [x] 进度列表展示正常
-- [x] 添加进度记录功能正常
-- [x] 掌握程度评估正常
-
-**风险与回滚**:
-- 风险：进度计算逻辑
-- 回滚：简化评估逻辑
-
----
-
-## [UTC+2026-03-04 08:00] 配置 TabBar 导航和主界面
-
-**目标**: 整合所有视图到 TabBar 导航
-
-**改动文件**:
-- `ContentView.swift` - 更新根视图
-- `MainTabView.swift` - TabBar 视图
-
-**验收标准**:
-- [x] 四个 Tab 正常切换
-- [x] 导航层级正确
-- [x] 界面响应流畅
-
-**风险与回滚**:
-- 风险：导航状态管理
-- 回滚：检查状态绑定
-
----
-
-## [UTC+2026-03-04 08:30] 对接后端 API
+## [UTC+2026-03-04 08:30] Phase 3 - API 对接与数据同步（Done）
 
 **目标**: 实现与 Flask 后端的 API 通信，支持远程数据同步
 
@@ -188,69 +104,17 @@
 - `Services/APIService.swift` - API 服务
 - `Services/SyncService.swift` - 同步服务
 - `Services/ExportService.swift` - 导出服务
+- `Views/Settings/SettingsView.swift` - 设置页面
+- `Views/Students/StudentDetailView.swift` - 学生详情页
+- `Views/Components/CommonViews.swift` - 通用组件
 
 **验收标准**:
 - [x] 登录认证功能正常
 - [x] 可获取远程数据
 - [x] 数据同步正常（本地+远程）
 - [x] 离线支持正常
+- [x] 数据导出功能正常
 
 **风险与回滚**:
-- 风险：网络请求错误处理
-- 回滚：添加错误提示和重试
-
----
-
-## [UTC+2026-03-04 09:00] 添加设置页面
-
-**目标**: 添加设置页面，支持服务器配置、用户管理
-
-**改动文件**:
-- `Views/Settings/SettingsView.swift` - 设置页面
-- 更新 MainTabView 添加设置 Tab
-
-**验收标准**:
-- [x] 服务器地址配置
-- [x] 用户登录/登出
-- [x] 关于页面
-
----
-
-## [UTC+2026-03-04 09:30] 添加数据导出功能
-
-**目标**: 支持导出学生、课程、进度数据
-
-**改动文件**:
-- 添加导出按钮到列表页面
-
-**验收标准**:
-- [x] 导出为 CSV 格式
-- [x] 导出为 JSON 格式
-
----
-
-## [UTC+2026-03-04 10:00] 添加学生详情页面
-
-**目标**: 显示学生的完整信息和关联的课程/进度记录
-
-**改动文件**:
-- `Views/Students/StudentDetailView.swift` - 学生详情页
-
-**验收标准**:
-- [x] 显示学生详细信息
-- [x] 显示该学生的课程记录
-- [x] 显示该学生的进度记录
-
----
-
-## [UTC+2026-03-04 10:30] 完善 UI/UX
-
-**目标**: 优化界面细节，提升用户体验
-
-**改动文件**:
-- `Views/Components/CommonViews.swift` - 空状态、加载、错误视图
-
-**验收标准**:
-- [x] 更好的空状态提示
-- [x] 加载中显示骨架屏或指示器
-- [x] 表单验证错误提示清晰
+- 风险：网络请求错误处理复杂
+- 回滚：添加错误提示和重试机制
