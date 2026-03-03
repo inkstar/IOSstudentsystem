@@ -13,6 +13,7 @@
 		2D464CFAA403BE4D435833518243E7A3 /* StudentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAE7A3563CB023500D13AC309A6FF51 /* StudentDetailView.swift */; };
 		2FEB401D32BA778B79925D0A23E3A48E /* SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235FD2219EB01BD26880903E5D645AE9 /* SyncService.swift */; };
 		3D1F36928445F83317AD8F543D3CAB9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29923D0C0E329FCF564BB0BEB040CFA1 /* ContentView.swift */; };
+		474BDCE111C707B77E9AA6EF80B2F799 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B1366C6D9EC18A7F0BC6E3D71AE90 /* CalendarView.swift */; };
 		4A9BA1A17338BD026230124890450950 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07652BF7FA3AEAA74A76EC0A2EEFDD43 /* Student.swift */; };
 		4BF17F8180932A729A0B020633BDEE58 /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6582653B58384F4FA0A04493C83F8E55 /* CommonViews.swift */; };
 		5E94BF5379902940D9547BB7540F7C05 /* StudentCourseManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B6189F4DE1E4E4DEE1A1231C13A49A /* StudentCourseManagerApp.swift */; };
@@ -31,6 +32,7 @@
 		CEC842D0EFD6956D6A558AEC279BB70E /* StudentFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB3D75B4E7D47C47BA83BC0DBCDE843 /* StudentFormView.swift */; };
 		DC87EB8857465C88B9B163AF7D9BEF2D /* LessonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD1AE19D235E15C093BCCB2A819E99 /* LessonListView.swift */; };
 		E1F54A29F26E6D075D0175E3B9DB653C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE125E18630424B36F53B8E7F4A338 /* APIService.swift */; };
+		E8D7B02279AC533559939039A64EF8A8 /* CalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B8F884EA9544F8D5C43519E12EB1CB /* CalendarDayView.swift */; };
 		EDFD61F5DEAD549517E8AE54F5801E85 /* StudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D21AF6DCB797D7FC9B05B887F36240C /* StudentListView.swift */; };
 		F88C42540BBC999D42FE5672956A5067 /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59728BDF8898D762B6BBE8E8152541 /* ExportService.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,8 @@
 		6582653B58384F4FA0A04493C83F8E55 /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
 		6B1C6405FAC2D8715AF1B145D6F822DF /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		740C0ACB3FDEC6BE8249895030337ECF /* ProgressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressFormView.swift; sourceTree = "<group>"; };
+		802B1366C6D9EC18A7F0BC6E3D71AE90 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		81B8F884EA9544F8D5C43519E12EB1CB /* CalendarDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayView.swift; sourceTree = "<group>"; };
 		8AB3D75B4E7D47C47BA83BC0DBCDE843 /* StudentFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentFormView.swift; sourceTree = "<group>"; };
 		98BE125E18630424B36F53B8E7F4A338 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		A1D46F6144C5F3A6FC86CDEC1349E318 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		29B006C3FEA86F1C399CC42CEBB4EEB2 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				81B8F884EA9544F8D5C43519E12EB1CB /* CalendarDayView.swift */,
+				802B1366C6D9EC18A7F0BC6E3D71AE90 /* CalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		3E62B53D0DAA9A9993B449BC9341F142 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				0573C03085B45E1B74E893E54F36431C /* MainTabView.swift */,
+				29B006C3FEA86F1C399CC42CEBB4EEB2 /* Calendar */,
 				BD0E05C55736B85AFD1EEAF17C90F59C /* Components */,
 				3E62B53D0DAA9A9993B449BC9341F142 /* Dashboard */,
 				E67DC9991F13DB20339FDBF60627F646 /* Lessons */,
@@ -269,6 +283,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1F54A29F26E6D075D0175E3B9DB653C /* APIService.swift in Sources */,
+				E8D7B02279AC533559939039A64EF8A8 /* CalendarDayView.swift in Sources */,
+				474BDCE111C707B77E9AA6EF80B2F799 /* CalendarView.swift in Sources */,
 				4BF17F8180932A729A0B020633BDEE58 /* CommonViews.swift in Sources */,
 				3D1F36928445F83317AD8F543D3CAB9B /* ContentView.swift in Sources */,
 				B6F979A69FA699B5A0377B734470A281 /* DashboardView.swift in Sources */,

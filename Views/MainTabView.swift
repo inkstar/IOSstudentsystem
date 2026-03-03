@@ -23,6 +23,11 @@ struct MainTabView: View {
                     Label("课程", systemImage: "book.fill")
                 }
 
+            CalendarView()
+                .tabItem {
+                    Label("日历", systemImage: "calendar")
+                }
+
             ProgressListView(viewModel: progressVM, studentVM: studentVM)
                 .tabItem {
                     Label("进度", systemImage: "chart.line.uptrend.xyaxis")
