@@ -346,6 +346,8 @@
 			buildSettings = {
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -361,6 +363,7 @@
 						PRODUCT_BUNDLE_IDENTIFIER = com.studentapp.coursemanager;
 						PRODUCT_NAME = "$(TARGET_NAME)";
 						SDKROOT = iphoneos;
+						SWIFT_OPTIMIZATION_LEVEL = "-O";
 						SWIFT_VERSION = 5.9;
 						ALWAYS_SEARCH_USER_PATHS = NO;
 						TARGETED_DEVICE_FAMILY = "1,2";
@@ -372,6 +375,7 @@
 			buildSettings = {
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -387,6 +391,8 @@
 						PRODUCT_BUNDLE_IDENTIFIER = com.studentapp.coursemanager;
 						PRODUCT_NAME = "$(TARGET_NAME)";
 						SDKROOT = iphoneos;
+						SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+						SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 						SWIFT_VERSION = 5.9;
 						ALWAYS_SEARCH_USER_PATHS = NO;
 						TARGETED_DEVICE_FAMILY = "1,2";

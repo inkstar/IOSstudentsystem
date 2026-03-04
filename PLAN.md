@@ -20,10 +20,14 @@
 - Phase 5：数据统计图表：Done
 - Phase 6：课程详情页：Done
 - Phase 7：知识点标签功能：Done
+- Phase 8：构建稳定性与预览修复：Done
+- Phase 9：课程时间段自由选择：Done
 
 ---
 
 ## 执行日志
+- 2026-03-04: 完成 Phase 9 - 课程时间段自由选择
+- 2026-03-04: 完成 Phase 8 - 构建稳定性与预览修复
 - 2026-03-04: 完成 Phase 7 - 知识点标签功能开发
 - 2026-03-04: 完成 Phase 6 - 课程详情页开发
 - 2026-03-04: 完成 Phase 5 - 数据统计图表开发
@@ -31,6 +35,49 @@
 - 2026-03-04: 完成 Phase 3 - API 对接与数据同步
 - 2026-03-04: 完成 Phase 2 - 核心 CRUD 功能开发
 - 2026-03-04: 完成 Phase 1 - 初始化项目基础架构
+
+---
+
+## [UTC+8 2026-03-04 14:52] Phase 9 - 课程时间段自由选择（Done）
+
+**目标**: 添加课程时支持开始/结束时间自由选择（分钟级），不再限制半点粒度
+
+**改动文件**:
+- `Views/Lessons/LessonFormView.swift` - 将时间输入改为 `DatePicker(.hourAndMinute)`，并按时间段自动计算时长
+
+**验收标准**:
+- [x] 可自由选择开始时间与结束时间（分钟级）
+- [x] 自动计算时长并在表单中展示
+- [x] 保存时使用时间段格式（如 `09:10-10:45`）
+- [x] 编辑历史课程时可兼容旧时间字符串
+
+**风险与回滚**:
+- 风险：旧课程时间字符串格式不规范导致解析偏差
+- 回滚：保留单时间输入模式并恢复固定时段选择
+
+---
+
+## [UTC+8 2026-03-04 13:25] Phase 8 - 构建稳定性与预览修复（Done）
+
+**目标**: 修复构建失败与预览不可用问题，恢复 Debug 构建稳定性
+
+**改动文件**:
+- `Services/APIService.swift` - 修复 `Encodable`/`Void` 请求泛型导致的编译失败
+- `Views/Students/StudentDetailView.swift` - 修复 `TabView` 中条件分支 `.tag()` 编译问题
+- `Views/Statistics/StatisticsView.swift` - 替换 iOS 17+ 的 `SectorMark` 以兼容 iOS 16
+- `Views/Calendar/CalendarView.swift` - 清理未使用变量 warning
+- `Views/Components/CommonViews.swift` - 清理未使用变量 warning
+- `StudentCourseManager.xcodeproj/project.pbxproj` - 修复产物名、Debug 优化级别、预览配置与基础构建设置
+
+**验收标准**:
+- [x] `xcodebuild Debug` 构建通过
+- [x] Swift 编译参数为 `-Onone`（支持 Previews）
+- [x] 不再出现 `.app` 空产物路径冲突
+- [x] MainTabView 索引/识别问题可通过清理缓存后恢复
+
+**风险与回滚**:
+- 风险：工程配置手动修改后与 XcodeGen 输出不一致
+- 回滚：基于 `project.yml` 重新生成工程并按需回放配置
 
 ---
 
