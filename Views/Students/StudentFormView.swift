@@ -7,6 +7,9 @@ struct StudentFormView: View {
     let student: Student?
     @State private var name: String = ""
     @State private var grade: String = ""
+    @State private var gender: String = ""
+    @State private var school: String = ""
+    @State private var className: String = ""
     @State private var phone: String = ""
     @State private var parentPhone: String = ""
     @State private var email: String = ""
@@ -14,6 +17,7 @@ struct StudentFormView: View {
     @State private var notes: String = ""
 
     private let grades = ["一年级", "二年级", "三年级", "四年级", "五年级", "六年级", "初一", "初二", "初三", "高一", "高二", "高三"]
+    private let genders = ["男", "女"]
 
     var isEditing: Bool {
         student != nil
@@ -24,6 +28,13 @@ struct StudentFormView: View {
             Section("基本信息") {
                 TextField("姓名", text: $name)
 
+                Picker("性别", selection: $gender) {
+                    Text("请选择性别").tag("")
+                    ForEach(genders, id: \.self) { g in
+                        Text(g).tag(g)
+                    }
+                }
+
                 Picker("年级", selection: $grade) {
                     Text("请选择年级").tag("")
                     ForEach(grades, id: \.self) { g in
@@ -31,18 +42,24 @@ struct StudentFormView: View {
                     }
                 }
 
+                TextField("学校", text: $school)
+
+                TextField("班级", text: $className)
+            }
+
+            Section("联系方式") {
                 TextField("联系电话", text: $phone)
                     .keyboardType(.phonePad)
 
                 TextField("家长电话", text: $parentPhone)
                     .keyboardType(.phonePad)
-            }
 
-            Section("其他信息") {
                 TextField("邮箱", text: $email)
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
+            }
 
+            Section("其他信息") {
                 TextField("地址", text: $address)
 
                 TextField("备注", text: $notes, axis: .vertical)
@@ -69,6 +86,9 @@ struct StudentFormView: View {
             if let student = student {
                 name = student.name
                 grade = student.grade
+                gender = student.gender
+                school = student.school
+                className = student.className ?? ""
                 phone = student.phone
                 parentPhone = student.parentPhone
                 email = student.email
@@ -82,6 +102,9 @@ struct StudentFormView: View {
         var newStudent = student ?? Student()
         newStudent.name = name
         newStudent.grade = grade
+        newStudent.gender = gender
+        newStudent.school = school
+        newStudent.className = className.isEmpty ? nil : className
         newStudent.phone = phone
         newStudent.parentPhone = parentPhone
         newStudent.email = email

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @ObservedObject var studentVM: StudentViewModel
     @StateObject private var syncService = SyncService.shared
     @State private var serverURL: String = APIService.shared.baseURL
     @State private var showingLogoutAlert = false
@@ -9,8 +10,41 @@ struct SettingsView: View {
     @State private var isSyncing = false
 
     var body: some View {
-        NavigationStack {
-            List {
+        List {
+                Section("数据导入导出") {
+                    NavigationLink(destination: ImportView(studentVM: studentVM)) {
+                        HStack {
+                            Image(systemName: "doc.badge.arrow.up")
+                                .foregroundColor(.blue)
+                            Text("CSV 导入")
+                        }
+                    }
+
+                    NavigationLink(destination: ExportView(studentVM: studentVM)) {
+                        HStack {
+                            Image(systemName: "doc.badge.arrow.down")
+                                .foregroundColor(.green)
+                            Text("导出数据")
+                        }
+                    }
+
+                    NavigationLink(destination: WeakPointTagManageView()) {
+                        HStack {
+                            Image(systemName: "tag")
+                                .foregroundColor(.orange)
+                            Text("薄弱点标签管理")
+                        }
+                    }
+
+                    NavigationLink(destination: WeakPointStatsView()) {
+                        HStack {
+                            Image(systemName: "chart.bar")
+                                .foregroundColor(.red)
+                            Text("薄弱点统计")
+                        }
+                    }
+                }
+
                 Section("服务器设置") {
                     HStack {
                         Text("服务器地址")
@@ -115,7 +149,6 @@ struct SettingsView: View {
                 serverURL = APIService.shared.baseURL
             }
         }
-    }
 
     private func saveServerURL() {
         APIService.shared.baseURL = serverURL

@@ -28,6 +28,16 @@ struct MainTabView: View {
                     Label("课程", systemImage: "book.fill")
                 }
 
+            ClassSessionListView()
+                .tabItem {
+                    Label("课堂", systemImage: "person.wave.2.fill")
+                }
+
+            ExamListView()
+                .tabItem {
+                    Label("考试", systemImage: "doc.text.fill")
+                }
+
             CalendarView()
                 .tabItem {
                     Label("日历", systemImage: "calendar")
@@ -45,7 +55,7 @@ struct MainTabView: View {
                 Label("薄弱点", systemImage: "exclamationmark.triangle.fill")
             }
 
-            SettingsView()
+            SettingsView(studentVM: studentVM)
                 .tabItem {
                     Label("设置", systemImage: "gearshape.fill")
                 }

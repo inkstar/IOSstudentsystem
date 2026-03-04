@@ -23,6 +23,7 @@ struct StudentListView: View {
                     .background(Color(.systemGray6))
                     .cornerRadius(10)
 
+                    // Grade Filter
                     if !viewModel.grades.isEmpty {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 8) {
@@ -38,6 +39,28 @@ struct StudentListView: View {
                             }
                         }
                     }
+
+                    // Class Name Filter
+                    if !viewModel.classNames.isEmpty {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 8) {
+                                ClassFilterButton(className: "", isSelected: viewModel.selectedClassName == "", action: {
+                                    viewModel.selectedClassName = ""
+                                })
+
+                                ForEach(viewModel.classNames, id: \.self) { className in
+                                    ClassFilterButton(className: className, isSelected: viewModel.selectedClassName == className, action: {
+                                        viewModel.selectedClassName = className
+                                    })
+                                }
+                            }
+                        }
+                    }
+
+                    // Show Archived Toggle
+                    Toggle("显示已归档学生", isOn: $viewModel.showArchived)
+                        .font(.subheadline)
+                        .padding(.horizontal)
                 }
                 .padding()
 
@@ -130,11 +153,29 @@ struct GradeFilterButton: View {
 
     var body: some View {
         Button(action: action) {
-            Text(grade.isEmpty ? "全部" : grade)
+            Text(grade.isEmpty ? "全部年级" : grade)
                 .font(.subheadline)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
                 .background(isSelected ? Color.blue : Color(.systemGray5))
+                .foregroundColor(isSelected ? .white : .primary)
+                .cornerRadius(16)
+        }
+    }
+}
+
+struct ClassFilterButton: View {
+    let className: String
+    let isSelected: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text(className.isEmpty ? "全部分班" : className)
+                .font(.subheadline)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(isSelected ? Color.green : Color(.systemGray5))
                 .foregroundColor(isSelected ? .white : .primary)
                 .cornerRadius(16)
         }
@@ -147,8 +188,19 @@ struct StudentRowView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text(student.name)
-                    .font(.headline)
+                HStack {
+                    Text(student.name)
+                        .font(.headline)
+                    if student.archived {
+                        Text("已归档")
+                            .font(.caption2)
+                            .padding(.horizontal, 4)
+                            .padding(.vertical, 2)
+                            .background(Color.gray.opacity(0.2))
+                            .foregroundColor(.gray)
+                            .cornerRadius(4)
+                    }
+                }
                 HStack(spacing: 8) {
                     if !student.grade.isEmpty {
                         Text(student.grade)
@@ -159,8 +211,17 @@ struct StudentRowView: View {
                             .foregroundColor(.blue)
                             .cornerRadius(4)
                     }
-                    if !student.phone.isEmpty {
-                        Text(student.phone)
+                    if let className = student.className, !className.isEmpty {
+                        Text(className)
+                            .font(.caption)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.green.opacity(0.1))
+                            .foregroundColor(.green)
+                            .cornerRadius(4)
+                    }
+                    if !student.gender.isEmpty {
+                        Text(student.gender)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
