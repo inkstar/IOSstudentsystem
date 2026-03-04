@@ -72,7 +72,7 @@ class APIService {
     }
 
     func deleteStudent(id: Int64, completion: @escaping (Result<Void, APIError>) -> Void) {
-        request(endpoint: "/api/students/\(id)", method: "DELETE", completion: completion)
+        requestVoid(endpoint: "/api/students/\(id)", method: "DELETE", completion: completion)
     }
 
     // MARK: - Lessons
@@ -86,7 +86,7 @@ class APIService {
     }
 
     func deleteLesson(id: Int64, completion: @escaping (Result<Void, APIError>) -> Void) {
-        request(endpoint: "/api/lessons/\(id)", method: "DELETE", completion: completion)
+        requestVoid(endpoint: "/api/lessons/\(id)", method: "DELETE", completion: completion)
     }
 
     // MARK: - Progress
@@ -100,7 +100,7 @@ class APIService {
     }
 
     func deleteProgress(id: Int64, completion: @escaping (Result<Void, APIError>) -> Void) {
-        request(endpoint: "/api/progress/\(id)", method: "DELETE", completion: completion)
+        requestVoid(endpoint: "/api/progress/\(id)", method: "DELETE", completion: completion)
     }
 
     // MARK: - Auth
@@ -116,7 +116,7 @@ class APIService {
 
     // MARK: - Private
 
-    private func request<T: Decodable>(endpoint: String, method: String, body: Encodable? = nil, completion: @escaping (Result<T, APIError>) -> Void) {
+    private func request<T: Decodable>(endpoint: String, method: String, completion: @escaping (Result<T, APIError>) -> Void) {
         guard let url = URL(string: baseURL + endpoint) else {
             completion(.failure(.invalidURL))
             return
@@ -128,10 +128,6 @@ class APIService {
 
         if let token = authToken {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
-
-        if let body = body {
-            request.httpBody = try? JSONEncoder().encode(body)
         }
 
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -165,6 +161,94 @@ class APIService {
                 } catch {
                     completion(.failure(.decodingError))
                 }
+            }
+        }.resume()
+    }
+
+    private func request<T: Decodable, Body: Encodable>(endpoint: String, method: String, body: Body, completion: @escaping (Result<T, APIError>) -> Void) {
+        guard let url = URL(string: baseURL + endpoint) else {
+            completion(.failure(.invalidURL))
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = method
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        if let token = authToken {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+
+        request.httpBody = try? JSONEncoder().encode(body)
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(.networkError(error)))
+                    return
+                }
+
+                if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 401 {
+                        completion(.failure(.unauthorized))
+                        return
+                    }
+                    if httpResponse.statusCode >= 400 {
+                        completion(.failure(.serverError(httpResponse.statusCode)))
+                        return
+                    }
+                }
+
+                guard let data = data else {
+                    completion(.failure(.noData))
+                    return
+                }
+
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .iso8601
+                    let result = try decoder.decode(T.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(.decodingError))
+                }
+            }
+        }.resume()
+    }
+
+    private func requestVoid(endpoint: String, method: String, completion: @escaping (Result<Void, APIError>) -> Void) {
+        guard let url = URL(string: baseURL + endpoint) else {
+            completion(.failure(.invalidURL))
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = method
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        if let token = authToken {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(.networkError(error)))
+                    return
+                }
+
+                if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 401 {
+                        completion(.failure(.unauthorized))
+                        return
+                    }
+                    if httpResponse.statusCode >= 400 {
+                        completion(.failure(.serverError(httpResponse.statusCode)))
+                        return
+                    }
+                }
+
+                completion(.success(()))
             }
         }.resume()
     }

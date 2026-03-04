@@ -83,7 +83,7 @@ struct SyncStatusBadge: View {
                     .scaleEffect(0.6)
                 Text("同步中...")
                     .font(.caption)
-            } else if let lastSync = syncService.lastSyncDate {
+            } else if syncService.lastSyncDate != nil {
                 Image(systemName: "checkmark.icloud")
                     .foregroundColor(.green)
                 Text("已同步")

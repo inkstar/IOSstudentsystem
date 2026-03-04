@@ -68,46 +68,52 @@ struct StudentDetailView: View {
             // Tab Content
             TabView(selection: $selectedTab) {
                 // Lessons Tab
-                if studentLessons.isEmpty {
-                    emptyState(message: "暂无课程记录")
-                } else {
-                    List(studentLessons) { lesson in
-                        LessonRowView(lesson: lesson)
+                Group {
+                    if studentLessons.isEmpty {
+                        emptyState(message: "暂无课程记录")
+                    } else {
+                        List(studentLessons) { lesson in
+                            LessonRowView(lesson: lesson)
+                        }
+                        .listStyle(.plain)
                     }
-                    .listStyle(.plain)
                 }
                 .tag(0)
 
                 // Progress Tab
-                if studentProgress.isEmpty {
-                    emptyState(message: "暂无进度记录")
-                } else {
-                    List(studentProgress) { progress in
-                        ProgressRowView(record: progress)
+                Group {
+                    if studentProgress.isEmpty {
+                        emptyState(message: "暂无进度记录")
+                    } else {
+                        List(studentProgress) { progress in
+                            ProgressRowView(record: progress)
+                        }
+                        .listStyle(.plain)
                     }
-                    .listStyle(.plain)
                 }
                 .tag(1)
 
                 // Weak Points Tab
-                if knowledgePointVM.weakPoints.isEmpty {
-                    emptyState(message: "暂无薄弱知识点记录")
-                } else {
-                    VStack {
-                        HStack {
-                            Spacer()
-                            Button(knowledgePointVM.sortByCount ? "按次数排序" : "按分数排序") {
-                                knowledgePointVM.toggleSortOrder()
+                Group {
+                    if knowledgePointVM.weakPoints.isEmpty {
+                        emptyState(message: "暂无薄弱知识点记录")
+                    } else {
+                        VStack {
+                            HStack {
+                                Spacer()
+                                Button(knowledgePointVM.sortByCount ? "按次数排序" : "按分数排序") {
+                                    knowledgePointVM.toggleSortOrder()
+                                }
+                                .buttonStyle(.bordered)
                             }
-                            .buttonStyle(.bordered)
-                        }
-                        .padding(.horizontal)
-                        .padding(.top, 8)
+                            .padding(.horizontal)
+                            .padding(.top, 8)
 
-                        List(knowledgePointVM.weakPoints) { point in
-                            KnowledgePointRowView(point: point)
+                            List(knowledgePointVM.weakPoints) { point in
+                                KnowledgePointRowView(point: point)
+                            }
+                            .listStyle(.plain)
                         }
-                        .listStyle(.plain)
                     }
                 }
                 .tag(2)

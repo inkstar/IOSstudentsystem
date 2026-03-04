@@ -41,10 +41,9 @@ struct StatisticsView: View {
                                 .padding(.horizontal)
 
                             Chart(lessonStatusDistribution) { item in
-                                SectorMark(
-                                    angle: .value("数量", item.count),
-                                    innerRadius: .ratio(0.5),
-                                    angularInset: 1
+                                BarMark(
+                                    x: .value("状态", item.status),
+                                    y: .value("数量", item.count)
                                 )
                                 .foregroundStyle(by: .value("状态", item.status))
                                 .cornerRadius(4)

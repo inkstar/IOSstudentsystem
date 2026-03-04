@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04075BEB34989890D039A91AE6FAD8F4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596F4EA2C6BE5FD4EA172A95CC63F757 /* SettingsView.swift */; };
 		09719401BB4D349D78767BC115850A2D /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408733709E6C871E3630E1F65B9A52C6 /* LessonViewModel.swift */; };
+		192CADF0C62A922BB6C1A32D619B6914 /* WeakPointsByGradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942CC11CFF990D2A25CEE2E927B4BCE9 /* WeakPointsByGradeView.swift */; };
 		2B0BD0C725CBDCB0C824F2DAEC78C0B8 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D46F6144C5F3A6FC86CDEC1349E318 /* ShareSheet.swift */; };
 		2D464CFAA403BE4D435833518243E7A3 /* StudentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAE7A3563CB023500D13AC309A6FF51 /* StudentDetailView.swift */; };
 		2FEB401D32BA778B79925D0A23E3A48E /* SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235FD2219EB01BD26880903E5D645AE9 /* SyncService.swift */; };
@@ -30,9 +31,12 @@
 		B6F979A69FA699B5A0377B734470A281 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51707B5D1603BC20F8A14B1C7AFD1BE1 /* DashboardView.swift */; };
 		BAE0A9EE3CB30206A5CBB963AC26436B /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80B0173F6AF8BB70DCD4DEB473DC5A8 /* StudentViewModel.swift */; };
 		BD71FEC287B119CB51CE8C18C8CD6DA0 /* ProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AD02D9DC340F87AE6E6A130FDBA350 /* ProgressViewModel.swift */; };
+		BF0AE07389131DCEC8109F67F91C4940 /* KnowledgePointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2C5F1A893F68339991C9BC2E862A9C /* KnowledgePointViewModel.swift */; };
+		C4BD4BE00BBA63CACBF8920A599F0205 /* KnowledgePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A44A8C6F7FCD32F48DD32D48D7C82D0 /* KnowledgePoint.swift */; };
 		CD159CC34336C6C955966DEDC39F114D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E542B09F4A95732EF1F0ABF29678EAD /* Assets.xcassets */; };
 		CEC842D0EFD6956D6A558AEC279BB70E /* StudentFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB3D75B4E7D47C47BA83BC0DBCDE843 /* StudentFormView.swift */; };
 		DC87EB8857465C88B9B163AF7D9BEF2D /* LessonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD1AE19D235E15C093BCCB2A819E99 /* LessonListView.swift */; };
+		E14497901E1D644AE2EDC3EC9E818B6A /* KnowledgePointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A08BC2DD28ABC99D060C532F834E36 /* KnowledgePointService.swift */; };
 		E1F54A29F26E6D075D0175E3B9DB653C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE125E18630424B36F53B8E7F4A338 /* APIService.swift */; };
 		E8D7B02279AC533559939039A64EF8A8 /* CalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B8F884EA9544F8D5C43519E12EB1CB /* CalendarDayView.swift */; };
 		EDFD61F5DEAD549517E8AE54F5801E85 /* StudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D21AF6DCB797D7FC9B05B887F36240C /* StudentListView.swift */; };
@@ -51,6 +55,7 @@
 		3547B343BB167CF70347BD1967AE326C /* LessonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonFormView.swift; sourceTree = "<group>"; };
 		3B59728BDF8898D762B6BBE8E8152541 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		408733709E6C871E3630E1F65B9A52C6 /* LessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewModel.swift; sourceTree = "<group>"; };
+		4A44A8C6F7FCD32F48DD32D48D7C82D0 /* KnowledgePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgePoint.swift; sourceTree = "<group>"; };
 		4D21AF6DCB797D7FC9B05B887F36240C /* StudentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListView.swift; sourceTree = "<group>"; };
 		4D34C3E946FAE4EC23824F89FB14F1BE /* ProgressRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRecord.swift; sourceTree = "<group>"; };
 		51707B5D1603BC20F8A14B1C7AFD1BE1 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -59,9 +64,11 @@
 		6582653B58384F4FA0A04493C83F8E55 /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
 		6B1C6405FAC2D8715AF1B145D6F822DF /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		740C0ACB3FDEC6BE8249895030337ECF /* ProgressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressFormView.swift; sourceTree = "<group>"; };
+		7D2C5F1A893F68339991C9BC2E862A9C /* KnowledgePointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgePointViewModel.swift; sourceTree = "<group>"; };
 		802B1366C6D9EC18A7F0BC6E3D71AE90 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		81B8F884EA9544F8D5C43519E12EB1CB /* CalendarDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayView.swift; sourceTree = "<group>"; };
 		8AB3D75B4E7D47C47BA83BC0DBCDE843 /* StudentFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentFormView.swift; sourceTree = "<group>"; };
+		942CC11CFF990D2A25CEE2E927B4BCE9 /* WeakPointsByGradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakPointsByGradeView.swift; sourceTree = "<group>"; };
 		98BE125E18630424B36F53B8E7F4A338 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		A13A7DB00921B8EF601835FE6FE85019 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		A1D46F6144C5F3A6FC86CDEC1349E318 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
@@ -70,6 +77,7 @@
 		C7AD02D9DC340F87AE6E6A130FDBA350 /* ProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewModel.swift; sourceTree = "<group>"; };
 		D6465C7E2DB930F206064D1BB07EF1B0 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		EAAE7A3563CB023500D13AC309A6FF51 /* StudentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailView.swift; sourceTree = "<group>"; };
+		F1A08BC2DD28ABC99D060C532F834E36 /* KnowledgePointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgePointService.swift; sourceTree = "<group>"; };
 		F7FD1AE19D235E15C093BCCB2A819E99 /* LessonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +109,7 @@
 				98BE125E18630424B36F53B8E7F4A338 /* APIService.swift */,
 				2AD4F0037A9E307AC6B58266C97477CC /* DatabaseService.swift */,
 				3B59728BDF8898D762B6BBE8E8152541 /* ExportService.swift */,
+				F1A08BC2DD28ABC99D060C532F834E36 /* KnowledgePointService.swift */,
 				235FD2219EB01BD26880903E5D645AE9 /* SyncService.swift */,
 			);
 			path = Services;
@@ -162,6 +171,7 @@
 				EAAE7A3563CB023500D13AC309A6FF51 /* StudentDetailView.swift */,
 				8AB3D75B4E7D47C47BA83BC0DBCDE843 /* StudentFormView.swift */,
 				4D21AF6DCB797D7FC9B05B887F36240C /* StudentListView.swift */,
+				942CC11CFF990D2A25CEE2E927B4BCE9 /* WeakPointsByGradeView.swift */,
 			);
 			path = Students;
 			sourceTree = "<group>";
@@ -170,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				6B1C6405FAC2D8715AF1B145D6F822DF /* DashboardViewModel.swift */,
+				7D2C5F1A893F68339991C9BC2E862A9C /* KnowledgePointViewModel.swift */,
 				408733709E6C871E3630E1F65B9A52C6 /* LessonViewModel.swift */,
 				C7AD02D9DC340F87AE6E6A130FDBA350 /* ProgressViewModel.swift */,
 				A80B0173F6AF8BB70DCD4DEB473DC5A8 /* StudentViewModel.swift */,
@@ -205,6 +216,7 @@
 		CE97EEE5A56E4195E826F70CE30BA4E3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4A44A8C6F7FCD32F48DD32D48D7C82D0 /* KnowledgePoint.swift */,
 				D6465C7E2DB930F206064D1BB07EF1B0 /* Lesson.swift */,
 				4D34C3E946FAE4EC23824F89FB14F1BE /* ProgressRecord.swift */,
 				07652BF7FA3AEAA74A76EC0A2EEFDD43 /* Student.swift */,
@@ -256,13 +268,7 @@
 		170A12FC7C24FE3206FD10406B3D72EB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1500;
-				TargetAttributes = {
-					699CA9262E6437BF5A4300641316125A = {
-						DevelopmentTeam = "";
-						ProvisioningStyle = Automatic;
-					};
-				};
+				LastUpgradeCheck = 1000;
 			};
 			buildConfigurationList = 6F77AC7DBB3752D266C383452120830E /* Build configuration list for PBXProject "StudentCourseManager" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -305,6 +311,9 @@
 				936814474FD91DF1B2BF29998F47B28A /* DashboardViewModel.swift in Sources */,
 				88D84B2C0D69C243FC6C777F10E27719 /* DatabaseService.swift in Sources */,
 				F88C42540BBC999D42FE5672956A5067 /* ExportService.swift in Sources */,
+				C4BD4BE00BBA63CACBF8920A599F0205 /* KnowledgePoint.swift in Sources */,
+				E14497901E1D644AE2EDC3EC9E818B6A /* KnowledgePointService.swift in Sources */,
+				BF0AE07389131DCEC8109F67F91C4940 /* KnowledgePointViewModel.swift in Sources */,
 				68254012DFC51490236166DE4C040DB8 /* Lesson.swift in Sources */,
 				3859330736BFA3CB1AB3AAF07D476E72 /* LessonDetailView.swift in Sources */,
 				64F56654F7AC7794588E8BC4DFF4D921 /* LessonFormView.swift in Sources */,
@@ -325,6 +334,7 @@
 				EDFD61F5DEAD549517E8AE54F5801E85 /* StudentListView.swift in Sources */,
 				BAE0A9EE3CB30206A5CBB963AC26436B /* StudentViewModel.swift in Sources */,
 				2FEB401D32BA778B79925D0A23E3A48E /* SyncService.swift in Sources */,
+				192CADF0C62A922BB6C1A32D619B6914 /* WeakPointsByGradeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,61 +344,67 @@
 		225935E40660BE9CDA474D640BF0F80F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.9;
 			};
 			name = Debug;
 		};
-		60A29BA46FAF894B98DF1739A360EDBB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				INFOPLIST_KEY_CFBundleDisplayName = "学生课程管理";
-				PRODUCT_BUNDLE_IDENTIFIER = com.studentapp.coursemanager;
-			};
-			name = Release;
+			60A29BA46FAF894B98DF1739A360EDBB /* Release */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					CODE_SIGNING_ALLOWED = NO;
+						GENERATE_INFOPLIST_FILE = YES;
+						IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+						INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+						INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+						INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+						PRODUCT_BUNDLE_IDENTIFIER = com.studentapp.coursemanager;
+						PRODUCT_NAME = "$(TARGET_NAME)";
+						SDKROOT = iphoneos;
+						SWIFT_VERSION = 5.9;
+						ALWAYS_SEARCH_USER_PATHS = NO;
+						TARGETED_DEVICE_FAMILY = "1,2";
+					};
+				name = Release;
 		};
 		67BD4B37D754D6B62B6035084ADC0A8E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.9;
 			};
 			name = Release;
 		};
-		8552DA9904AEAD8BB1793A8CC722B750 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				INFOPLIST_KEY_CFBundleDisplayName = "学生课程管理";
-				PRODUCT_BUNDLE_IDENTIFIER = com.studentapp.coursemanager;
-			};
-			name = Debug;
+			8552DA9904AEAD8BB1793A8CC722B750 /* Debug */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					CODE_SIGNING_ALLOWED = NO;
+						GENERATE_INFOPLIST_FILE = YES;
+						IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+						INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+						INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+						INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+						PRODUCT_BUNDLE_IDENTIFIER = com.studentapp.coursemanager;
+						PRODUCT_NAME = "$(TARGET_NAME)";
+						SDKROOT = iphoneos;
+						SWIFT_VERSION = 5.9;
+						ALWAYS_SEARCH_USER_PATHS = NO;
+						TARGETED_DEVICE_FAMILY = "1,2";
+					};
+				name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0821C7FB1110C29DF95D765563FEBF3B /* Build configuration list for PBXNativeTarget "StudentCourseManager" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8552DA9904AEAD8BB1793A8CC722B750 /* Debug */,
-				60A29BA46FAF894B98DF1739A360EDBB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "";
-		};
+			0821C7FB1110C29DF95D765563FEBF3B /* Build configuration list for PBXNativeTarget "StudentCourseManager" */ = {
+				isa = XCConfigurationList;
+				buildConfigurations = (
+					8552DA9904AEAD8BB1793A8CC722B750 /* Debug */,
+					60A29BA46FAF894B98DF1739A360EDBB /* Release */,
+				);
+				defaultConfigurationIsVisible = 0;
+				defaultConfigurationName = Debug;
+			};
 		6F77AC7DBB3752D266C383452120830E /* Build configuration list for PBXProject "StudentCourseManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
